@@ -8,11 +8,9 @@ $this->title = 'About';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode($this->title) ?> Minang Resto</h1>
 
     <p>
-        This is the About page. You may modify the following file to customize its content:
+    Restoran Minang merupakan perusahaan swasta yang terbentuk perorangan. Didirikan pada tanggal 9 oktober 2020 berlokasi di jalan kebon bawang XI No. 12 Jakarta Utara, yang kemudian ditetapkan sebagai Rumah Makan Minang sekaligus sebagai kantor pusat dan administrasinya. Pada awalnya restoran ini hanya berupa rumah makan yang diberi nama "Rumah Makan dan Buffet Minang".
     </p>
-
-    <code><?= __FILE__ ?></code>
 </div>

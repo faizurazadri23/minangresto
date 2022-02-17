@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\MenuSearch;
 
 class SiteController extends Controller
 {
@@ -61,7 +62,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $searchMenuModel = new MenuSearch();
+        $dataProvider = $searchMenuModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel'   => $searchMenuModel,
+            'dataMenu'      => $dataProvider->models
+        ]);
+        //return $this->render('index');
     }
 
     /**
