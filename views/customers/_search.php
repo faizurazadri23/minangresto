@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\MPaymentMethodTypeSearch */
+/* @var $model app\models\CustomersSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="mpayment-method-type-search">
+<div class="customers-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,11 +17,11 @@ use yii\widgets\ActiveForm;
 
     <div class="row">
         <div class="col-md-2">
-            <?= $form->field($model, 'type_id') ?>
+            <?= $form->field($model, 'customer_name') ?>
         </div>
 
         <div class="col-md-2">
-            <?= $form->field($model, 'method_name') ?>
+            <?= $form->field($model, 'jenis_kelamin') ?>
         </div>
 
         <div class="col-md-2">

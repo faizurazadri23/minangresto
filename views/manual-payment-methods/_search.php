@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
         </div>
 
         <div class="col-md-2">
-            <div class="form-group" style="padding-top: 25px">
+            <div class="form-group" style="padding-top: 30px">
             <?= Html::submitButton('Cari', ['class' => 'btn btn-primary']) ?>
             <?= Html::resetButton('Atur Ulang', ['class' => 'btn btn-outline-secondary']) ?>
             </div>

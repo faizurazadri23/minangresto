@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
         
     
     ?>
-        <?= Html::a('Pesan', ['pesan', 'kd_menu' => $model->kd_menu], ['class' => 'btn btn-warning']) ?>
+        <?= Html::a('Tambahkan Ke keranjang', ['cart', 'kd_menu' => $model->kd_menu], ['class' => 'btn btn-warning']) ?>
         <br>
     <?php }?>
    

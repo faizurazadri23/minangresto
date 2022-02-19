@@ -31,11 +31,24 @@ $this->title = 'My Yii Application';
                     <div class="card-body">
                     <h4 class="card-title"><?= $menu->nm_menu ?></h4>
                     <p><?= "Rp " . number_format($menu->harga, 2, ',', '.'); ?></p>
-                    
+
+
+                    <?php
+                        if(Yii::$app->user->isGuest){
+
+                        ?>
+                            <?= Html::a('Detail', ['site/login'], ['class'=>'btn btn-primary'])?>
+                            <?=  Html::a('Beli >>', ['site/login'], ['class'=>'btn btn-primary'])?>
+                        <?php } else{
+                            ?>
+                            <?= Html::a('Detail', ['menu/view', 'kd_menu'=>$menu->kd_menu], ['class'=>'btn btn-primary'])?>
+                            <?= Html::a('Beli >>', ['menu/pesan', 'id'=>$menu->kd_menu], ['class'=>'btn btn-primary'])?>
+                        <?php }
+                    ?>
                      
-                        <?= Html::a('Detail', ['menu/view', 'kd_menu'=>$menu->kd_menu], ['class'=>'btn btn-primary']) ?>
                         
-                        <?= Html::a('Beli >>', ['menu/pesan', 'id'=>$menu->kd_menu], ['class'=>'btn btn-primary']) ?>
+                        
+                        
                     </div>
                 </div>
             </div>

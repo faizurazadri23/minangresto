@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\MenuSearch */
+/* @var $model app\models\UsersSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="menu-search">
+<div class="users-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,19 +17,19 @@ use yii\widgets\ActiveForm;
 
     <div class="row">
         <div class="col-md-2">
-            <?= $form->field($model, 'kd_menu') ?>
+            <?= $form->field($model, 'user_type') ?>
         </div>
 
         <div class="col-md-2">
-            <?= $form->field($model, 'nm_menu') ?>
+            <?= $form->field($model, 'first_name') ?>
         </div>
 
         <div class="col-md-2">
-            <?= $form->field($model, 'harga') ?>
+            <?= $form->field($model, 'last_name') ?>
         </div>
 
         <div class="col-md-2">
-            <?= $form->field($model, 'kd_kategori') ?>
+            <?= $form->field($model, 'username') ?>
         </div>
 
         <div class="col-md-2">

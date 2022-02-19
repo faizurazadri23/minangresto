@@ -35,7 +35,29 @@ AppAsset::register($this);
         ],
     ]);
 
-    if(!Yii::$app->user->isGuest){
+    if(Yii::$app->user->isGuest){
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav'],
+            'items' => [
+                ['label' => 'Home',             'url' => ['/']],
+                ['label' => 'Tentang Kami',     'url' => ['/site/about']],
+                ['label' => 'Hubungi Kami',   'url' => ['/site/contact']],
+                
+                Yii::$app->user->isGuest ? (
+                    ['label' => 'Masuk', 'url' => ['/site/login']]
+                ) : (
+                    '<li>'
+                    . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
+                    . Html::submitButton(
+                        'Logout (' . Yii::$app->user->identity->username . ')',
+                        ['class' => 'btn btn-link logout']
+                    )
+                    . Html::endForm()
+                    . '</li>'
+                )
+            ],
+        ]);
+    }else if(Yii::$app->user->identity->user_type==="admin"){
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav'],
             'items' => [
@@ -56,7 +78,15 @@ AppAsset::register($this);
                         ['label'    => 'Jenis Pembayaran' , 'url' => ['/manual-payment-methods/index']]
                     ]
                 ],
-                
+
+                [
+                    'label' => 'Daftar Pengguna',
+                    'items' => [
+                        ['label'    => 'Akun' , 'url' => ['/users/index']],
+                        ['label'    => 'Pelanggan' , 'url' => ['/customers/index']]
+                    ]
+                ],
+            
                 Yii::$app->user->isGuest ? (
                     ['label' => 'Login', 'url' => ['/site/login']]
                 ) : (
@@ -71,13 +101,46 @@ AppAsset::register($this);
                 )
             ],
         ]);
-    }else{
+    }else if(Yii::$app->user->identity->user_type==="staf"){
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav'],
             'items' => [
                 ['label' => 'Home',             'url' => ['/']],
-                ['label' => 'Tentang Kami',     'url' => ['/site/about']],
+                [
+                    'label' => 'Pesanan',
+                    'items' => [
+                        ['label'    => 'Pesanan Online' , 'url' => ['/order-online/index']],
+                        ['label'    => 'Pesanan Offline' , 'url' => ['/order-on-site/index']]
+                    ]
+                ],                
+                Yii::$app->user->isGuest ? (
+                    ['label' => 'Login', 'url' => ['/site/login']]
+                ) : (
+                    '<li>'
+                    . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
+                    . Html::submitButton(
+                        'Keluar (' . Yii::$app->user->identity->username . ')',
+                        ['class' => 'btn btn-link logout']
+                    )
+                    . Html::endForm()
+                    . '</li>'
+                )
+            ],
+        ]);
+    } else if(Yii::$app->user->identity->user_type==="customer"){
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav'],
+            'items' => [
+                ['label' => 'Home',             'url' => ['/']],
                 ['label' => 'Keranjang',     'url' => ['/carts/index']],
+                [
+                    'label' => 'Riwayat Pesanan',
+                    'items' => [
+                        ['label'    => 'Pesanan Online' , 'url' => ['/order-online/index']],
+                        ['label'    => 'Pesanan Offline' , 'url' => ['/order-on-site/index']]
+                    ]
+                ],
+                ['label' => 'Tentang Kami',     'url' => ['/site/about']],
                 ['label' => 'Hubungi Kami',   'url' => ['/site/contact']],
                 
                 Yii::$app->user->isGuest ? (

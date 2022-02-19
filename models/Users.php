@@ -37,13 +37,16 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['user_type', 'first_name', 'last_name', 'username', 'password', 'avatar', 'address', 'authkey'], 'required'],
+            [['first_name', 'last_name', 'username', 'password', 'address'], 'required'],
             [['address'], 'string'],
             [['create_at', 'update_at'], 'safe'],
             [['user_type'], 'string', 'max' => 10],
             [['first_name', 'last_name'], 'string', 'max' => 25],
             [['username'], 'string', 'max' => 30],
             [['password', 'avatar'], 'string', 'max' => 255],
+            ['avatar', 'file', 'extensions' => ['jpg', 'png', 'JPEG', 'JPG', 'gif', 'webp'],
+                'wrongExtension'    => 'Hanya format gambar {extensions} yang diizinkan untuk {attribute}.',
+            ],
             [['authkey'], 'string', 'max' => 50],
         ];
     }
@@ -56,12 +59,12 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             'id' => 'ID',
             'user_type' => 'User Type',
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
-            'username' => 'Username',
-            'password' => 'Password',
-            'avatar' => 'Avatar',
-            'address' => 'Address',
+            'first_name' => 'Nama Depan',
+            'last_name' => 'Nama Belakang',
+            'username' => 'Nama Pengguna',
+            'password' => 'Kata Sandi',
+            'avatar' => 'Foto Profil',
+            'address' => 'Alamat Tempat Tinggal',
             'authkey' => 'Authkey',
             'create_at' => 'Create At',
             'update_at' => 'Update At',
