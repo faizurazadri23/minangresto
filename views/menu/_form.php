@@ -29,6 +29,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'harga')->textInput() ?>
 
+    <?= $form->field($model, 'deskripsi')->textarea(['rows' => 6]) ?>
+
     <?= $form->field($model, 'photo_menu')->fileInput(); ?>
     
     <div class="form-group">

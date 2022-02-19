@@ -34,7 +34,8 @@ class Menu extends \yii\db\ActiveRecord
             [['nm_menu'], 'string', 'max' => 100],
             [['kd_kategori'], 'string', 'max' => 3],
             [['kd_menu'], 'unique'],
-            ['photo_menu', 'file', 'extensions' => ['jpg', 'png', 'JPEG', 'JPG', 'gif'],
+            [['deskripsi'], 'string'],
+            ['photo_menu', 'file', 'extensions' => ['jpg', 'png', 'JPEG', 'JPG', 'gif', 'webp'],
                 'wrongExtension'    => 'Hanya format gambar {extensions} yang diizinkan untuk {attribute}.',
             ],
         ];
@@ -50,6 +51,7 @@ class Menu extends \yii\db\ActiveRecord
             'nm_menu' => 'Menu',
             'harga' => 'Harga',
             'kd_kategori' => 'Kode Kategori',
+            'deskripsi' => 'Deskripsi',
             'photo_menu'    => 'Gambar Menu'
         ];
     }

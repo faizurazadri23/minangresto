@@ -34,7 +34,7 @@ class OrderOnline extends \yii\db\ActiveRecord
             [['manual_payment'], 'integer'],
             [['order_id_online'], 'string', 'max' => 25],
             [['id_customer'], 'string', 'max' => 15],
-            [['payment_type'], 'string', 'max' => 255],
+            [['payment_status'], 'string', 'max' => 25],
             [['order_id_online'], 'unique'],
         ];
     }
@@ -45,10 +45,10 @@ class OrderOnline extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'order_id_online' => 'Order Id Online',
-            'id_customer' => 'Id Customer',
+            'order_id_online' => 'Kode Pesanan',
+            'id_customer' => 'ID Pelanggan',
             'order_date' => 'Order Date',
-            'payment_type' => 'Payment Type',
+            'payment_status' => 'Status Pembayaran',
             'manual_payment' => 'Manual Payment',
         ];
     }

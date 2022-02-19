@@ -34,8 +34,8 @@ use yii\widgets\ActiveForm;
 
         <div class="col-md-2">
             <div class="form-group" style="padding-top: 25px">
-                <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-                <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+                <?= Html::submitButton('Cari', ['class' => 'btn btn-primary']) ?>
+                <?= Html::resetButton('Atur Ulang', ['class' => 'btn btn-outline-secondary']) ?>
             </div>
         </div>
     </div>

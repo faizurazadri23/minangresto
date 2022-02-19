@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\OrderOnline;
+use app\models\MPaymentMethodType;
 
 /**
- * OrderOnlineSearch represents the model behind the search form of `app\models\OrderOnline`.
+ * MPaymentMethodTypeSearch represents the model behind the search form of `app\models\MPaymentMethodType`.
  */
-class OrderOnlineSearch extends OrderOnline
+class MPaymentMethodTypeSearch extends MPaymentMethodType
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,7 @@ class OrderOnlineSearch extends OrderOnline
     public function rules()
     {
         return [
-            [['order_id_online', 'id_customer', 'order_date', 'payment_status'], 'safe'],
-            [['manual_payment'], 'integer'],
+            [['type_id', 'description', 'method_name'], 'safe'],
         ];
     }
 
@@ -40,7 +39,7 @@ class OrderOnlineSearch extends OrderOnline
      */
     public function search($params)
     {
-        $query = OrderOnline::find();
+        $query = MPaymentMethodType::find();
 
         // add conditions that should always apply here
 
@@ -57,14 +56,9 @@ class OrderOnlineSearch extends OrderOnline
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'order_date' => $this->order_date,
-            'manual_payment' => $this->manual_payment,
-        ]);
-
-        $query->andFilterWhere(['like', 'order_id_online', $this->order_id_online])
-            ->andFilterWhere(['like', 'id_customer', $this->id_customer])
-            ->andFilterWhere(['like', 'payment_status', $this->payment_status]);
+        $query->andFilterWhere(['like', 'type_id', $this->type_id])
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'method_name', $this->method_name]);
 
         return $dataProvider;
     }

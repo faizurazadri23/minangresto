@@ -2,6 +2,7 @@
 
 /** @var yii\web\View $this */
 
+use app\models\Menu;
 use PharIo\Manifest\Url;
 use yii\bootstrap4\Html;
 
@@ -18,23 +19,26 @@ $this->title = 'My Yii Application';
     </div>
 
     <div class="body-content">
+        
         <div class="row">
         <?php foreach($dataMenu as $menu){  ?>
+            
             <div class="col-lg-4">
-                <div class="card" style="width:300px">
+                <br>
+                <div class="card" style="width:300px; height:450px">
                     <?= Html::img($menu->photo_menu, ['width'   => '100%', 'height' => 250]) ?>
                     <!-- <img class="card-img-top" src="https://food.id/static/img/cover-fd.jpeg" alt="Card image" style="width:100%"> -->
                     <div class="card-body">
                     <h4 class="card-title"><?= $menu->nm_menu ?></h4>
                     <p><?= "Rp " . number_format($menu->harga, 2, ',', '.'); ?></p>
                     
-                        <?= Html::a('Detail', ['detail'], ['class'=>'btn btn-info']) ?>
-                        <?= Html::a('Beli >>', ['pesan'], ['class'=>'btn btn-primary']) ?>
+                     
+                        <?= Html::a('Detail', ['menu/view', 'kd_menu'=>$menu->kd_menu], ['class'=>'btn btn-primary']) ?>
+                        
+                        <?= Html::a('Beli >>', ['menu/pesan', 'id'=>$menu->kd_menu], ['class'=>'btn btn-primary']) ?>
                     </div>
                 </div>
             </div>
-            <br>
-
         <?php } ?>
         </div>
     </div>

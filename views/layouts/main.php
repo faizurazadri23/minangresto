@@ -49,6 +49,13 @@ AppAsset::register($this);
                         ['label'    => 'Pesanan Offline' , 'url' => ['/order-on-site/index']]
                     ]
                 ],
+                [
+                    'label' => 'Metode Pembayaran',
+                    'items' => [
+                        ['label'    => 'Metode Pembayaran' , 'url' => ['/m-payment-method-type/index']],
+                        ['label'    => 'Jenis Pembayaran' , 'url' => ['/manual-payment-methods/index']]
+                    ]
+                ],
                 
                 Yii::$app->user->isGuest ? (
                     ['label' => 'Login', 'url' => ['/site/login']]
@@ -70,6 +77,7 @@ AppAsset::register($this);
             'items' => [
                 ['label' => 'Home',             'url' => ['/']],
                 ['label' => 'Tentang Kami',     'url' => ['/site/about']],
+                ['label' => 'Keranjang',     'url' => ['/carts/index']],
                 ['label' => 'Hubungi Kami',   'url' => ['/site/contact']],
                 
                 Yii::$app->user->isGuest ? (

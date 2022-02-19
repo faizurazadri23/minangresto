@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'nm_menu',
             'harga',
             'kd_kategori',
+            'deskripsi',
             'photo_menu',
             [
                 'class' => ActionColumn::className(),

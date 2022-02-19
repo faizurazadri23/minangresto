@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\OrderOnline;
+use app\models\Carts;
 
 /**
- * OrderOnlineSearch represents the model behind the search form of `app\models\OrderOnline`.
+ * CartsSearch represents the model behind the search form of `app\models\Carts`.
  */
-class OrderOnlineSearch extends OrderOnline
+class CartsSearch extends Carts
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,9 @@ class OrderOnlineSearch extends OrderOnline
     public function rules()
     {
         return [
-            [['order_id_online', 'id_customer', 'order_date', 'payment_status'], 'safe'],
-            [['manual_payment'], 'integer'],
+            [['id', 'user_id', 'quantity'], 'integer'],
+            [['kd_menu', 'create_at', 'update_at'], 'safe'],
+            [['price'], 'number'],
         ];
     }
 
@@ -40,7 +41,7 @@ class OrderOnlineSearch extends OrderOnline
      */
     public function search($params)
     {
-        $query = OrderOnline::find();
+        $query = Carts::find();
 
         // add conditions that should always apply here
 
@@ -58,13 +59,15 @@ class OrderOnlineSearch extends OrderOnline
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'order_date' => $this->order_date,
-            'manual_payment' => $this->manual_payment,
+            'id' => $this->id,
+            'user_id' => $this->user_id,
+            'price' => $this->price,
+            'quantity' => $this->quantity,
+            'create_at' => $this->create_at,
+            'update_at' => $this->update_at,
         ]);
 
-        $query->andFilterWhere(['like', 'order_id_online', $this->order_id_online])
-            ->andFilterWhere(['like', 'id_customer', $this->id_customer])
-            ->andFilterWhere(['like', 'payment_status', $this->payment_status]);
+        $query->andFilterWhere(['like', 'kd_menu', $this->kd_menu]);
 
         return $dataProvider;
     }

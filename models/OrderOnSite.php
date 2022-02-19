@@ -44,11 +44,12 @@ class OrderOnSite extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'order_id_onsite' => 'Order Id Onsite',
-            'id_customer' => 'Id Customer',
+            'order_id_onsite' => 'Kode Pesanan',
+            'id_customer' => 'ID Pelanggan',
             'order_date' => 'Order Date',
-            'number_of_people' => 'Number Of People',
-            'table_number' => 'Table Number',
+            'number_of_people' => 'Jumlah Orang',
+            'payment_status'    => 'Status Bayar',
+            'table_number' => 'Nomor Meja',
         ];
     }
 }
