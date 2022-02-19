@@ -4,7 +4,7 @@
 
 use yii\bootstrap4\Html;
 
-$this->title = 'My Yii Application';
+$this->title = 'Minang Resto';
 ?>
 <div class="site-index">
 
@@ -13,7 +13,7 @@ $this->title = 'My Yii Application';
 
         <p class="lead">Rasa Kenikmatan Masakan Minang Yang Mendunia</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Pesan Sekarang Juga</a></p>
+        <p><a class="btn btn-lg btn-success" href="#">Pesan Sekarang Juga</a></p>
     </div>
 
     <div class="body-content">
