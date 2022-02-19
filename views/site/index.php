@@ -27,7 +27,7 @@ $this->title = 'My Yii Application';
                 <br>
                 <div class="card" style="width:300px; height:450px">
                     <?= Html::img($menu->photo_menu, ['width'   => '100%', 'height' => 250]) ?>
-                    <!-- <img class="card-img-top" src="https://food.id/static/img/cover-fd.jpeg" alt="Card image" style="width:100%"> -->
+              
                     <div class="card-body">
                     <h4 class="card-title"><?= $menu->nm_menu ?></h4>
                     <p><?= "Rp " . number_format($menu->harga, 2, ',', '.'); ?></p>
