@@ -2,8 +2,6 @@
 
 /** @var yii\web\View $this */
 
-use app\models\Menu;
-use PharIo\Manifest\Url;
 use yii\bootstrap4\Html;
 
 $this->title = 'My Yii Application';
