@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2022 at 07:13 PM
+-- Generation Time: Feb 20, 2022 at 09:30 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -36,6 +36,19 @@ CREATE TABLE `carts` (
   `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `carts`
+--
+
+INSERT INTO `carts` (`id`, `user_id`, `kd_menu`, `price`, `quantity`, `create_at`, `update_at`) VALUES
+(2, 3, 'MN001', 12000, 46, '2022-02-20 05:16:45', '2022-02-20 05:16:45'),
+(3, 2, 'MI003', 22, 5, '2022-02-20 07:14:38', '2022-02-20 07:14:38'),
+(4, 3, 'MI003', 9000, 2, '2022-02-20 07:35:33', '2022-02-20 07:35:33'),
+(5, 3, 'MI004', 25000, 25, '2022-02-20 07:35:55', '2022-02-20 07:35:55'),
+(6, 3, 'MI002', 12000, 24, '2022-02-20 07:37:11', '2022-02-20 07:37:11'),
+(7, 1, 'MI002', 12000, 1, '2022-02-20 07:59:43', '2022-02-20 07:59:43'),
+(8, 1, 'MI003', 9000, 2, '2022-02-20 08:01:13', '2022-02-20 08:01:13');
 
 -- --------------------------------------------------------
 
@@ -119,7 +132,6 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`kd_menu`, `nm_menu`, `harga`, `photo_menu`, `deskripsi`, `kd_kategori`) VALUES
-('MI001', 'Jus Pokat', 12000, 'image/menu/20220219053548.jpg', 'Jus Pokat', 'M02'),
 ('MI002', 'Jus Jeruk', 12000, 'image/menu/20220219053629.jpg', 'Jus Jeruk', 'M02'),
 ('MI003', 'Jus Anggur', 9000, 'image/menu/20220219053725.jpg', 'Jus Anggur', 'M02'),
 ('MI004', 'Coconut Ice Cream', 25000, 'image/menu/20220219054639.jpeg', 'Es krim yang satu ini memadukan gurih krim segar dengan gurih harum santan kelapa. Rasanya mirip es puter tetapi lebih creamy gurih. Sudah ngiler membayangkan es krim ini? Yuk Order Sekarang', 'M01'),
@@ -334,7 +346,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `manual_payment_methods`
