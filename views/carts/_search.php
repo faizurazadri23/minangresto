@@ -15,25 +15,19 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <div class="row">
+        <div class="col-md-2">
+            <?= $form->field($model, 'kd_menu') ?>
+        </div>
 
-    <?= $form->field($model, 'user_id') ?>
-
-    <?= $form->field($model, 'kd_menu') ?>
-
-    <?= $form->field($model, 'price') ?>
-
-    <?= $form->field($model, 'quantity') ?>
-
-    <?php // echo $form->field($model, 'create_at') ?>
-
-    <?php // echo $form->field($model, 'update_at') ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+        <div class="col-md-2">
+            <div class="form-group" style="padding-top: 30px">
+            <?= Html::submitButton('Cari', ['class' => 'btn btn-primary']) ?>
+            <?= Html::resetButton('Atur Ulang', ['class' => 'btn btn-outline-secondary']) ?>
+            </div>
+        </div>
     </div>
-
+    
     <?php ActiveForm::end(); ?>
 
 </div>

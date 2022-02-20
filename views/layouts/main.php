@@ -112,7 +112,8 @@ AppAsset::register($this);
                         ['label'    => 'Pesanan Online' , 'url' => ['/order-online/index']],
                         ['label'    => 'Pesanan Offline' , 'url' => ['/order-on-site/index']]
                     ]
-                ],                
+                ],
+                ['label' => 'Keranjang',     'url' => ['/carts/index?CartsSearch[user_id]=' . Yii::$app->user->identity->id]],              
                 Yii::$app->user->isGuest ? (
                     ['label' => 'Login', 'url' => ['/site/login']]
                 ) : (
@@ -132,7 +133,7 @@ AppAsset::register($this);
             'options' => ['class' => 'navbar-nav'],
             'items' => [
                 ['label' => 'Home',             'url' => ['/']],
-                ['label' => 'Keranjang',     'url' => ['/carts/index']],
+                ['label' => 'Keranjang',     'url' => ['/carts/index?CartsSearch[user_id]=' . Yii::$app->user->identity->id]],
                 [
                     'label' => 'Riwayat Pesanan',
                     'items' => [

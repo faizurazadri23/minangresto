@@ -40,7 +40,7 @@ $this->title = 'Minang Resto';
                         <?php } else{
                             ?>
                             <?= Html::a('Detail', ['menu/view', 'kd_menu'=>$menu->kd_menu], ['class'=>'btn btn-primary'])?>
-                            <?= Html::a('Beli >>', ['menu/pesan', 'id'=>$menu->kd_menu], ['class'=>'btn btn-primary'])?>
+                            <?= Html::a('Beli >>', ['customers/create'], ['class'=>'btn btn-primary'])?>
                         <?php }
                     ?>
                      

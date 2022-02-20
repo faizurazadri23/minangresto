@@ -17,9 +17,18 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Buat Pesanan Ditempat', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?php 
+        if(Yii::$app->user->identity->user_type==="admin"){
+
+        ?>
+        <p>
+            <?= Html::a('Buat Pesanan Ditempat', ['create'], ['class' => 'btn btn-success']) ?>
+        </p>
+
+        <?php }?>
+
+
+    
 
     <?php echo $this->render('_search', ['model' => $searchModel]); ?>
 

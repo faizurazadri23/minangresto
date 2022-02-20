@@ -18,23 +18,24 @@ use yii\widgets\ActiveForm;
             
         <?php } else if(Yii::$app->user->identity->user_type==="admin"){
             ?>
-            <?= $form->field($model, 'user_type')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'user_type')->dropDownList([ 'customer' => 'customer', 'admin' => 'admin', 'staf' => 'staf' ], ['prompt' => 'Silahkan Pilih Tipe Akun']) ?>
+            
             <?php }
     ?>
 
     
 
-    <?= $form->field($model, 'first_name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'first_name')->textInput(['maxlength' => true, 'placeholder'    => 'Nama Depan']) ?>
 
-    <?= $form->field($model, 'last_name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'last_name')->textInput(['maxlength' => true, 'placeholder'    => 'Nama Belakang']) ?>
 
-    <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'username')->textInput(['maxlength' => true, 'placeholder'    => 'Nama Pengguna']) ?>
 
-    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true, 'placeholder'    => 'Kata Sandi']) ?>
 
     <?= $form->field($model, 'avatar')->fileInput(); ?>
 
-    <?= $form->field($model, 'address')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'address')->textarea(['rows' => 6, 'placeholder'    => 'Alamat Tempat Tinggal']) ?>
 
     <!-- <?= $form->field($model, 'authkey')->textInput(['maxlength' => true]) ?> -->
 

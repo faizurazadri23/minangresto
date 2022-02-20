@@ -52,8 +52,8 @@ class Carts extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'user_id' => 'User ID',
-            'kd_menu' => 'Kd Menu',
-            'price' => 'Price',
+            'kd_menu' => 'Kode Menu',
+            'price' => 'Harga',
             'quantity' => 'Quantity',
             'create_at' => 'Create At',
             'update_at' => 'Update At',
